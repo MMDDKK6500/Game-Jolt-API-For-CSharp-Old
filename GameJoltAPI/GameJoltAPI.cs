@@ -12,7 +12,6 @@ namespace GameJoltAPI
 
         public static async Task<string> get(string url)
         {
-            // Call asynchronous network methods in a try/catch block to handle exceptions.
             try
             {
                 HttpResponseMessage response = await client.GetAsync("http://api.gamejolt.com/api/game/v1_2/" + url);
@@ -57,11 +56,19 @@ namespace GameJoltAPI
     {
         public static string fetchUser(string game_id, string private_key, string username)
         {
-
             string url = "users/?game_id=" + game_id +"&username=" + username;
             string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
+            string urls = url + "&signature=" + signature;
+            string response = tools.get(urls).Result;
+            return response;
+        }
 
-            string response = tools.get(url).Result;
+        public static string authUser(string game_id, string private_key, string username, string token)
+        {
+            string url = "users/auth/?game_id=" + game_id + "&username=" + username + "&user_token=" + token;
+            string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
+            string urls = url + "&signature=" + signature;
+            string response = tools.get(urls).Result;
             return response;
         }
     }
