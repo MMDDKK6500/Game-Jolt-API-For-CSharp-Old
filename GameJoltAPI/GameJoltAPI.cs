@@ -72,4 +72,53 @@ namespace GameJoltAPI
             return response;
         }
     }
+
+    public class Sessions
+    {
+        public static string openSession(string game_id, string private_key, string username, string token)
+        {
+            string url = "sessions/open/?game_id=" + game_id + "&username=" + username + "&user_token=" + token;
+            string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
+            string urls = url + "&signature=" + signature;
+            string response = tools.get(urls).Result;
+            return response;
+        }
+
+        public static string closeSession(string game_id, string private_key, string username, string token)
+        {
+            string url = "sessions/close/?game_id=" + game_id + "&username=" + username + "&user_token=" + token;
+            string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
+            string urls = url + "&signature=" + signature;
+            string response = tools.get(urls).Result;
+            return response;
+        }
+
+        public static string pingSession(string game_id, string private_key, string username, string token, string status)
+        {
+            if (status==""||status==null)
+            {
+                string surl = "sessions/ping/?game_id=" + game_id + "&username=" + username + "&user_token=" + token;
+                string ssignature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + surl + private_key);
+                string surls = surl + "&signature=" + ssignature;
+                string sresponse = tools.get(surls).Result;
+                return sresponse;
+            }else
+            {
+                string url = "sessions/ping/?game_id=" + game_id + "&username=" + username + "&user_token=" + token + "&status=" + status;
+                string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
+                string urls = url + "&signature=" + signature;
+                string response = tools.get(urls).Result;
+                return response;
+            }
+        }
+
+        public static string checkSession(string game_id, string private_key, string username, string token)
+        {
+            string url = "sessions/check/?game_id=" + game_id + "&username=" + username + "&user_token=" + token;
+            string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
+            string urls = url + "&signature=" + signature;
+            string response = tools.get(urls).Result;
+            return response;
+        }
+    }
 }
