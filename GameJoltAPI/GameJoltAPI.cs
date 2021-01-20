@@ -121,4 +121,47 @@ namespace GameJoltAPI
             return response;
         }
     }
+
+    public class Scores
+    {
+        public static string addScore(string game_id, string private_key, string score, int sort, int table_id, string extra_data, string guest, string username, string token)
+        {
+            if (username==null||username=="")
+            {
+                if (extra_data == null || extra_data == "")
+                {
+                    string urlu = "scores/add/?game_id=" + game_id + "&guest=" + guest + "&score=" + score + "&sort=" + sort + "&table_id=" + table_id;
+                    string signatureu = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + urlu + private_key);
+                    string urlsu = urlu + "&signature=" + signatureu;
+                    string responseu = tools.get(urlsu).Result;
+                    return responseu;
+                }else
+                {
+                    string urlu = "scores/add/?game_id=" + game_id + "&guest=" + guest + "&score=" + score + "&sort=" + sort + "&table_id=" + table_id + "&extra_data=" + extra_data;
+                    string signatureu = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + urlu + private_key);
+                    string urlsu = urlu + "&signature=" + signatureu;
+                    string responseu = tools.get(urlsu).Result;
+                    return responseu;
+                }
+            }else
+            {
+                if (extra_data==null||extra_data=="")
+                {
+                    string eurl = "scores/add/?game_id=" + game_id + "&username=" + username + "&user_token=" + token + "&score=" + score + "&sort=" + sort + "&table_id=" + table_id;
+                    string esignature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + eurl + private_key);
+                    string eurls = eurl + "&signature=" + esignature;
+                    string eresponse = tools.get(eurls).Result;
+                    return eresponse;
+                }
+                else
+                {
+                    string url = "scores/add/?game_id=" + game_id + "&username=" + username + "&user_token=" + token + "&score=" + score + "&sort=" + sort + "&table_id=" + table_id + "&extra_data=" + extra_data;
+                    string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
+                    string urls = url + "&signature=" + signature;
+                    string response = tools.get(urls).Result;
+                    return response;
+                }
+            }
+        }
+    }
 }
