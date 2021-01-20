@@ -163,5 +163,13 @@ namespace GameJoltAPI
                 }
             }
         }
+        public static string getRank(string game_id, string private_key, int sort, int table_id)
+        {
+            string url = "scores/get-rank/?game_id=" + game_id + "&sort=" + sort + "&table_id=" + table_id;
+            string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
+            string urls = url + "&signature=" + signature;
+            string response = tools.get(urls).Result;
+            return response;
+        }
     }
 }
