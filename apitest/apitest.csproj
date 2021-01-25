@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameJoltAPI\GameJoltAPI.csproj">
+    <ProjectReference Include="..\GameJoltAPI\gamejoltapi.csproj">
       <Project>{4aa9b70a-e79d-4796-aa4f-84d9959ed266}</Project>
-      <Name>GameJoltAPI</Name>
+      <Name>gamejoltapi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

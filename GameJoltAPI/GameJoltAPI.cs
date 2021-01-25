@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace GameJoltAPI
+namespace gamejoltapi
 {
     public class tools
     {
@@ -166,6 +166,19 @@ namespace GameJoltAPI
         public static string getRank(string game_id, string private_key, int sort, int table_id)
         {
             string url = "scores/get-rank/?game_id=" + game_id + "&sort=" + sort + "&table_id=" + table_id;
+            string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
+            string urls = url + "&signature=" + signature;
+            string response = tools.get(urls).Result;
+            return response;
+        }
+
+        //public static string fetchScore(string game_id,)
+        //I have a life ok? https://gamejolt.com/game-api/doc/scores/fetch
+        //look at this, this is ridiculous, it would take an entire day to do that! Pls someone do it for me
+
+        public static string getTables(string game_id, string private_key)
+        {
+            string url = "scores/tables/?game_id=" + game_id;
             string signature = tools.MD5Hash("http://api.gamejolt.com/api/game/v1_2/" + url + private_key);
             string urls = url + "&signature=" + signature;
             string response = tools.get(urls).Result;

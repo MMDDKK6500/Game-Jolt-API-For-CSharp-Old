@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameJoltAPI", "GameJoltAPI\GameJoltAPI.csproj", "{4AA9B70A-E79D-4796-AA4F-84D9959ED266}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gamejoltapi", "GameJoltAPI\gamejoltapi.csproj", "{4AA9B70A-E79D-4796-AA4F-84D9959ED266}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apitest", "apitest\apitest.csproj", "{A48186E0-5A73-45DA-982B-1DAA67161917}"
 EndProject

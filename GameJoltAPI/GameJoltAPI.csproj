@@ -7,8 +7,8 @@
     <ProjectGuid>{4AA9B70A-E79D-4796-AA4F-84D9959ED266}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameJoltAPI</RootNamespace>
-    <AssemblyName>GameJoltAPI</AssemblyName>
+    <RootNamespace>gamejoltapi</RootNamespace>
+    <AssemblyName>gamejoltapi</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -45,7 +45,7 @@
     <Reference Include="System.Net.Http.WebRequest" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameJoltAPI.cs" />
+    <Compile Include="gamejoltapi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
