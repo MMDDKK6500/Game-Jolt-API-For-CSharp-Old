@@ -185,4 +185,9 @@ namespace gamejoltapi
             return response;
         }
     }
+
+/*    public class Trophies
+    {
+        public static string fetchTrophies()
+    }*/
 }
